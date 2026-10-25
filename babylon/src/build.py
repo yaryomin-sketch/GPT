@@ -24,13 +24,18 @@ def build(prefix=''):
  def replace(m):
   text=m[0]
   if 'class WorldView{' in text and 'globalThis.WorldView=WorldView' in text:
-   return '<script>globalThis.MICROCOSM_ASSET_PREFIX='+json.dumps(prefix)+';</script>'+''.join('<script src="'+prefix+path+'"></script>' for path in imports)
+   return '<script>globalThis.MICROCOSM_ASSET_PREFIX='+json.dumps(prefix)+';</script>'+''.join('<script src="'+prefix+path+('?v=18.1'if path.startswith('src/')else'')+'"></script>' for path in imports)
   return text
  html=re.sub(r'<script\b[^>]*>[\s\S]*?</script>',replace,source)
  assert html!=source
+ # All orbital drag gestures use the camera ray, including near-horizontal views.
+ old_pan="else if(worldView?.enabled&&worldView.center){if(lookPitch119>=90){const base=Math.min(canvas.width/state.universe.W,canvas.height/state.universe.H)*camera.zoom;camera.x+=dx/Math.max(.3,Math.cos(worldView.yaw));camera.y+=dy/Math.max(.3,Math.cos(worldView.yaw));worldView.setup(camera,canvas.width,canvas.height);}else worldView.pan(camera,dx,dy);}"
+ assert old_pan in html
+ html=html.replace(old_pan,"else if(worldView?.enabled&&worldView.center){worldView.pan(camera,dx,dy);}")
+ html=html.replace('modelVersion:state?.universe?.modelVersion,selectedAgent,rate:', 'modelVersion:state?.universe?.modelVersion,graphics:worldView?.metrics(),camera:{...camera,yaw:worldView?.yaw,tilt:worldView?.tilt},selectedAgent,rate:')
  html=html.replace('globalThis.__microcosmApp={','globalThis.__microcosmMusic=MicrocosmMusic.attach({AudioScene,toast});\nglobalThis.__microcosmApp={')
- html=html.replace('<title>Микрокосм 17.0','<title>Микрокосм 18.0').replace('МИКРОКОСМ 17.0 <i>','МИКРОКОСМ 18.0 <i>')
- html=html.replace('<title>Microcosm 17.0','<title>Microcosm 18.0').replace('Microcosm 17.0 ·','Microcosm 18.0 ·')
+ html=html.replace('<title>Микрокосм 17.0','<title>Микрокосм 18.1').replace('МИКРОКОСМ 17.0 <i>','МИКРОКОСМ 18.1 <i>')
+ html=html.replace('<title>Microcosm 17.0','<title>Microcosm 18.1').replace('Microcosm 17.0 ·','Microcosm 18.1 ·')
  return html
 (ROOT/'index.html').write_text(build());(ROOT/'root-index.html').write_text(build('babylon/'))
 # Report protected script hashes; the test also compares exact bytes.
@@ -41,4 +46,4 @@ for id in ['initial-state','worker-source']:
 shared=re.findall(r'<script>([\s\S]*?)</script>',source)[0]
 assert shared in build();protected['shared-rules']=hashlib.sha256(shared.encode()).hexdigest()
 (ROOT/'tests/protected-code.json').write_text(json.dumps(protected,indent=2)+'\n')
-print('Built 18.0; simulation, initial world and shared rules unchanged.',protected)
+print('Built 18.1; simulation, initial world and shared rules unchanged.',protected)

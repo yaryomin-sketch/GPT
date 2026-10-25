@@ -1,0 +1,20 @@
+{
+  "engine": "9.32.0",
+  "backend": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "webgl": 2,
+  "landSamples": 145,
+  "landCoverage": 0.9862068965517241,
+  "assetErrors": [],
+  "shaderErrors": [],
+  "textureCount": 133,
+  "walking": {
+    "grassBlades": 34824,
+    "visibleChunks": 19,
+    "visibleCreatures": 44,
+    "importedActors": 64,
+    "assetErrors": [],
+    "shaderErrors": [],
+    "walking": true
+  },
+  "cloudVolumes": 16
+}

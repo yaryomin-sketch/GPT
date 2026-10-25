@@ -5,8 +5,8 @@
   "species": 19,
   "metrics": {
     "renderer": "Babylon.js 9.32.0",
-    "frameMs": 6.032395000000179,
-    "maxFrameMs": 1041.0851309999998,
+    "frameMs": 21.604111999999077,
+    "maxFrameMs": 1608.739669,
     "fps": 29.411764705882334,
     "drawCalls": 0,
     "visibleChunks": 48,
@@ -23,16 +23,22 @@
       "stag"
     ],
     "assetErrors": [],
+    "shaderErrors": [],
     "cellMeters": 40,
     "walking": false,
     "lod": 0,
     "waterfalls": 0,
     "cloudsHidden": false
   },
+  "release": "18.1",
+  "camera": {
+    "cases": 216,
+    "maxDragErrorPixels": 0.9658749693614582
+  },
   "notes": [
-    "NullEngine checks are not a live browser GPU benchmark.",
-    "Environment binary validated separately; browser texture decoding not covered.",
-    "48 GLSL stages compiled and 24 programs linked in Mesa EGL.",
-    "Original three MP3 files match uploaded bytes."
+    "Simulation worker, shared rules and initial state match 17.0 byte-for-byte.",
+    "Terrain and water face upward; thin-instance pools have independent geometry.",
+    "Real WebGL2/Mesa texture decoding, land coverage, grass and clouds are in gpu-verification.json.",
+    "Timing values from NullEngine are not a GPU benchmark."
   ]
 }
