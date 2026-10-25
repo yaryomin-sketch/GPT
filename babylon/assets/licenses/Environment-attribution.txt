@@ -1,0 +1,5 @@
+Environment map: environmentSpecular.env, BabylonJS Assets.
+Source: https://assets.babylonjs.com/environments/environmentSpecular.env
+Repository: https://github.com/BabylonJS/Assets
+License: CC-BY-4.0 (see Babylon-Assets-license.txt).
+Used without modification; embedded as a data URI for offline loading.

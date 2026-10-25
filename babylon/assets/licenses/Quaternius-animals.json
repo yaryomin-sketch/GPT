@@ -1,0 +1,34 @@
+[
+  {
+    "file": "Deer.gltf",
+    "author": "Quaternius",
+    "source": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+    "download": "https://drive.usercontent.google.com/download?id=1iGpXKrqYGyZCPGHPPSuDAoKnOXLhXJ0q&export=download",
+    "license": "CC0-1.0",
+    "sha256": "b8afd0647e7a74332ce802c8326dfefe1a2b76da67ab925a631aaddb5ae9bdd4"
+  },
+  {
+    "file": "Stag.gltf",
+    "author": "Quaternius",
+    "source": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+    "download": "https://drive.usercontent.google.com/download?id=1URNoFeIFblJXPFOV6qwPrxZr5dLZ3YGx&export=download",
+    "license": "CC0-1.0",
+    "sha256": "170b964909d16d1ab4d428b1d714f25016913d32481acd9c3d62923192583be6"
+  },
+  {
+    "file": "Wolf.gltf",
+    "author": "Quaternius",
+    "source": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+    "download": "https://drive.usercontent.google.com/download?id=1lFQoQ9ln2Z2wGuFFWObj9i5jHqUl_ftG&export=download",
+    "license": "CC0-1.0",
+    "sha256": "cc02e9d128b5715f352ee8bea086f97a35f1d875d240de99b0f9f2775c37d415"
+  },
+  {
+    "file": "Fox.gltf",
+    "author": "Quaternius",
+    "source": "https://quaternius.com/packs/ultimateanimatedanimals.html",
+    "download": "https://drive.usercontent.google.com/download?id=1z-CWoUC2vJxrqgGFTYlMaywpE1ooV-bA&export=download",
+    "license": "CC0-1.0",
+    "sha256": "2f36e3c9c75ecddda85c5f9944e98ee1e88e7c679a546534aff1cea8ecde64c7"
+  }
+]

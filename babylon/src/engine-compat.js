@@ -1,0 +1,4 @@
+/* Targeted GLSL preprocessor fix for the pinned Babylon.js 9.32.0 UMD build.
+   An unmatched parenthesis in its inactive PREPASS_VELOCITY condition is rejected
+   by strict GLES compilers. Preserve the intended boolean expression. */
+(()=>{'use strict';const B=globalThis.BABYLON;if(B?.Engine.Version!=='9.32.0')return;const before='#if defined(PREPASS) && ((defined(PREPASS_VELOCITY) || defined(PREPASS_VELOCITY_LINEAR)) && !defined(BONES_VELOCITY_ENABLED)',after='#if defined(PREPASS) && (defined(PREPASS_VELOCITY) || defined(PREPASS_VELOCITY_LINEAR)) && !defined(BONES_VELOCITY_ENABLED)';for(const name of ['pbrVertexShader','openpbrVertexShader','defaultVertexShader']){const source=B.ShaderStore.ShadersStore[name];if(source?.includes(before))B.ShaderStore.ShadersStore[name]=source.replaceAll(before,after);}})();

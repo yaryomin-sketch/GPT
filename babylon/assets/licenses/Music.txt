@@ -1,0 +1,4 @@
+Music composed by Jeremy Soule, from The Elder Scrolls V: Skyrim.
+Three MP3 files supplied by the user for inclusion in this game:
+Before the Storm; The Streets of Whiterun; Sky Above, Voice Within.
+These recordings are separate from the CC0 art assets and Babylon.js license.

@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "roundtrips": 6,
+  "protectedCore": true,
+  "species": 19,
+  "metrics": {
+    "renderer": "Babylon.js 9.32.0",
+    "frameMs": 6.032395000000179,
+    "maxFrameMs": 1041.0851309999998,
+    "fps": 29.411764705882334,
+    "drawCalls": 0,
+    "visibleChunks": 48,
+    "cachedChunks": 70,
+    "grassBlades": 34620,
+    "visibleCreatures": 44,
+    "cloudInstances": 28,
+    "precipitationInstances": 160,
+    "importedActors": 67,
+    "importedModels": [
+      "fox",
+      "wolf",
+      "deer",
+      "stag"
+    ],
+    "assetErrors": [],
+    "cellMeters": 40,
+    "walking": false,
+    "lod": 0,
+    "waterfalls": 0,
+    "cloudsHidden": false
+  },
+  "notes": [
+    "NullEngine checks are not a live browser GPU benchmark.",
+    "Environment binary validated separately; browser texture decoding not covered.",
+    "48 GLSL stages compiled and 24 programs linked in Mesa EGL.",
+    "Original three MP3 files match uploaded bytes."
+  ]
+}

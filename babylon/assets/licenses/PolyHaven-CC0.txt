@@ -1,0 +1,4 @@
+Textures by Poly Haven, licensed CC0-1.0.
+Source: https://polyhaven.com/license
+Assets: {"Grass": "aerial_grass_rock", "Soil": "brown_mud_02", "Rock": "rock_boulder_dry", "Snow": "snow_02"}
+Modified: resized to 512 px and encoded as JPEG quality 91.
