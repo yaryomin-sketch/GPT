@@ -3,18 +3,19 @@
   "backend": "llvmpipe (LLVM 19.1.7, 256 bits)",
   "webgl": 2,
   "landSamples": 145,
-  "landCoverage": 0.9862068965517241,
+  "landCoverage": 0.9448275862068966,
   "assetErrors": [],
   "shaderErrors": [],
-  "textureCount": 133,
+  "textureCount": 140,
   "walking": {
-    "grassBlades": 34824,
-    "visibleChunks": 19,
+    "grassBlades": 77430,
+    "visibleChunks": 31,
     "visibleCreatures": 44,
     "importedActors": 64,
     "assetErrors": [],
     "shaderErrors": [],
     "walking": true
   },
-  "cloudVolumes": 16
+  "cloudVolumes": 16,
+  "release": "18.2"
 }

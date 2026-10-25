@@ -5,13 +5,13 @@
   "species": 19,
   "metrics": {
     "renderer": "Babylon.js 9.32.0",
-    "frameMs": 21.604111999999077,
-    "maxFrameMs": 1608.739669,
+    "frameMs": 69.51864999999998,
+    "maxFrameMs": 2327.498685,
     "fps": 29.411764705882334,
     "drawCalls": 0,
-    "visibleChunks": 48,
-    "cachedChunks": 70,
-    "grassBlades": 34620,
+    "visibleChunks": 156,
+    "cachedChunks": 156,
+    "grassBlades": 77430,
     "visibleCreatures": 44,
     "cloudInstances": 28,
     "precipitationInstances": 160,
@@ -30,15 +30,23 @@
     "waterfalls": 0,
     "cloudsHidden": false
   },
-  "release": "18.1",
+  "release": "18.2",
   "camera": {
     "cases": 216,
-    "maxDragErrorPixels": 0.9658749693614582
+    "maxDragErrorPixels": 0.9658749693614582,
+    "easingFrameRates": [
+      30,
+      60,
+      144
+    ]
+  },
+  "riverBed": {
+    "samples": 11064,
+    "belowWater": 11064
   },
   "notes": [
-    "Simulation worker, shared rules and initial state match 17.0 byte-for-byte.",
-    "Terrain and water face upward; thin-instance pools have independent geometry.",
-    "Real WebGL2/Mesa texture decoding, land coverage, grass and clouds are in gpu-verification.json.",
-    "Timing values from NullEngine are not a GPU benchmark."
+    "Worker, shared rules and initial world match 17.0 byte-for-byte.",
+    "NullEngine timings are not GPU performance measurements.",
+    "Actual WebGL2/Mesa images and shader checks are recorded in the GPU and closeup reports."
   ]
 }

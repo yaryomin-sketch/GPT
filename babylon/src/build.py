@@ -19,23 +19,24 @@ def write_bundle(name,files):
 write_bundle('nature-materials.js',paths)
 for name in ['Deer','Stag','Fox','Wolf']:write_bundle(name.lower()+'.js',[ROOT/'assets/animals'/(name+'.gltf')])
 bundles=['nature-materials','deer','stag','fox','wolf']
-imports=['vendor/babylon.js','vendor/babylonjs.loaders.min.js','vendor/babylonjs.materials.min.js']+['assets/bundles/'+x+'.js'for x in bundles]+['src/engine-compat.js','src/world-geometry.js','src/world-view-babylon.js','src/music-player.js']
+imports=['vendor/babylon.js','vendor/babylonjs.loaders.min.js','vendor/babylonjs.materials.min.js']+['assets/bundles/'+x+'.js'for x in bundles]+['src/engine-compat.js','src/world-geometry.js','src/landscape-materials.js','src/world-view-babylon.js','src/music-player.js']
 def build(prefix=''):
  def replace(m):
   text=m[0]
   if 'class WorldView{' in text and 'globalThis.WorldView=WorldView' in text:
-   return '<script>globalThis.MICROCOSM_ASSET_PREFIX='+json.dumps(prefix)+';</script>'+''.join('<script src="'+prefix+path+('?v=18.1'if path.startswith('src/')else'')+'"></script>' for path in imports)
+   return '<script>globalThis.MICROCOSM_ASSET_PREFIX='+json.dumps(prefix)+';</script>'+''.join('<script src="'+prefix+path+('?v=18.2'if path.startswith(('src/','assets/bundles/'))else'')+'"></script>' for path in imports)
   return text
  html=re.sub(r'<script\b[^>]*>[\s\S]*?</script>',replace,source)
  assert html!=source
+ client=list(re.finditer(r'<script\b[^>]*>[\s\S]*?</script>',html))[-1];patched=client[0].replace('Math.exp(-e.deltaY*.0015)','Math.exp(-clamp(e.deltaY,-180,180)*.0007)').replace('zoomAt(1.4)','zoomAt(1.25)').replace('zoomAt(1/1.4)','zoomAt(1/1.25)');html=html[:client.start()]+patched+html[client.end():]
  # All orbital drag gestures use the camera ray, including near-horizontal views.
  old_pan="else if(worldView?.enabled&&worldView.center){if(lookPitch119>=90){const base=Math.min(canvas.width/state.universe.W,canvas.height/state.universe.H)*camera.zoom;camera.x+=dx/Math.max(.3,Math.cos(worldView.yaw));camera.y+=dy/Math.max(.3,Math.cos(worldView.yaw));worldView.setup(camera,canvas.width,canvas.height);}else worldView.pan(camera,dx,dy);}"
  assert old_pan in html
  html=html.replace(old_pan,"else if(worldView?.enabled&&worldView.center){worldView.pan(camera,dx,dy);}")
  html=html.replace('modelVersion:state?.universe?.modelVersion,selectedAgent,rate:', 'modelVersion:state?.universe?.modelVersion,graphics:worldView?.metrics(),camera:{...camera,yaw:worldView?.yaw,tilt:worldView?.tilt},selectedAgent,rate:')
  html=html.replace('globalThis.__microcosmApp={','globalThis.__microcosmMusic=MicrocosmMusic.attach({AudioScene,toast});\nglobalThis.__microcosmApp={')
- html=html.replace('<title>Микрокосм 17.0','<title>Микрокосм 18.1').replace('МИКРОКОСМ 17.0 <i>','МИКРОКОСМ 18.1 <i>')
- html=html.replace('<title>Microcosm 17.0','<title>Microcosm 18.1').replace('Microcosm 17.0 ·','Microcosm 18.1 ·')
+ html=html.replace('<title>Микрокосм 17.0','<title>Микрокосм 18.2').replace('МИКРОКОСМ 17.0 <i>','МИКРОКОСМ 18.2 <i>')
+ html=html.replace('<title>Microcosm 17.0','<title>Microcosm 18.2').replace('Microcosm 17.0 ·','Microcosm 18.2 ·')
  return html
 (ROOT/'index.html').write_text(build());(ROOT/'root-index.html').write_text(build('babylon/'))
 # Report protected script hashes; the test also compares exact bytes.
@@ -46,4 +47,4 @@ for id in ['initial-state','worker-source']:
 shared=re.findall(r'<script>([\s\S]*?)</script>',source)[0]
 assert shared in build();protected['shared-rules']=hashlib.sha256(shared.encode()).hexdigest()
 (ROOT/'tests/protected-code.json').write_text(json.dumps(protected,indent=2)+'\n')
-print('Built 18.1; simulation, initial world and shared rules unchanged.',protected)
+print('Built 18.2; simulation, initial world and shared rules unchanged.',protected)

@@ -1,0 +1,18 @@
+{
+  "release": "18.2",
+  "backend": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "textureCount": 87,
+  "grassBlades": 55955,
+  "riverSegments": 3688,
+  "assetErrors": [],
+  "shaderErrors": [],
+  "riverPoint": [
+    65.495849609375,
+    45.035400390625
+  ],
+  "clearing": {
+    "x": 66.5,
+    "y": 46.5,
+    "score": 1.088402509540355
+  }
+}
