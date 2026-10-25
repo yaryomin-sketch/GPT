@@ -1,0 +1,6 @@
+{
+  "renderer": "llvmpipe (LLVM 19.1.7, 256 bits)",
+  "shaders": 4,
+  "images": 16,
+  "glErrors": []
+}

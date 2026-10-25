@@ -1,0 +1,46 @@
+{
+  "projectionPoints": 28,
+  "coverageChecks": 338,
+  "species": [
+    "rabbit",
+    "deer",
+    "mouse",
+    "boar",
+    "wolf",
+    "lynx",
+    "raven",
+    "fox",
+    "owl",
+    "bison",
+    "badger",
+    "bee",
+    "human"
+  ],
+  "metrics": {
+    "renderer": "WebGL2 · perspective",
+    "drawCalls": 14,
+    "frameMs": 14.242502999999488,
+    "maxFrameMs": 280.617751,
+    "sceneBuildMs": 4.0467699999990145,
+    "fps": 16.483516483516485,
+    "trees": 2425,
+    "grassBlades": 0,
+    "visibleCreatures": 0,
+    "visibleChunks": 84,
+    "cachedChunks": 84,
+    "lod": 1,
+    "waterfalls": 0,
+    "cloudsHidden": false,
+    "walking": false,
+    "cellMeters": 40,
+    "cloudInstances": 231,
+    "precipitationInstances": 576,
+    "jumpHeight": 0,
+    "position": {
+      "x": 40.38697000000002,
+      "y": 25.267100000000028
+    }
+  },
+  "recordedCommands": 62563,
+  "cpuCachedMeanMs": 14.216380233333288
+}

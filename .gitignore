@@ -1,0 +1,4 @@
+tests/gl-data/
+tests/extracted/
+__pycache__/
+*.pyc

@@ -1,0 +1,9 @@
+{
+  "simulationChangesLimitedToCellScale": true,
+  "cellMeters": 40,
+  "saveUnchanged": true,
+  "initialCreatures": 483,
+  "after60Seconds": 482,
+  "seconds": 21660,
+  "steps": 32276
+}
