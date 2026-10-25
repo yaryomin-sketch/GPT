@@ -42,7 +42,7 @@ s=s.replace('<button id="fullscreen"', '<button id="walk16" type="button" class=
 s=s.replace('<label>Детали <select id="viewQuality">','<label><input type="checkbox" id="showGrid16"> Сетка · 40 × 40 м</label><label>Детали <select id="viewQuality">')
 s=s.replace('Перетаскивайте карту мышью или одним пальцем · колесо / два пальца — масштаб · правая кнопка — поворот и взгляд · поиск переносит камеру к выбранному объекту','Кнопка «Гулять по миру» — прогулка от первого лица · WASD / стрелки — идти · мышь — обзор · Shift — быстрее · пробел — прыжок · Esc — вернуться. На карте: перетаскивание, масштаб колесом, поворот правой кнопкой. Клетка — 40 × 40 м.')
 s=s.replace('Объёмный мир: масштаб колесом, выбор существа нажатием', 'Объёмный мир. Гулять по миру — вид от первого лица; WASD — идти, мышь — обзор, Esc — карта')
-s=s.replace('Микрокосм 13.2 · Живая планета','Микрокосм 16.1 · Мир изнутри',1).replace('МИКРОКОСМ 15.0','МИКРОКОСМ 16.1')
+s=s.replace('Микрокосм 13.2 · Живая планета','Микрокосм 17.0 · Мир изнутри',1).replace('МИКРОКОСМ 15.0','МИКРОКОСМ 17.0')
 s=s.replace("setView(localStorage.getItem('microcosm-view')||'3d');", """setView(localStorage.getItem('microcosm-view')||'3d');
 $('walk16').onclick=()=>{if(worldView?.walking){worldView.stopWalk(camera);return;}stopCameraFollow();if(!worldView?.enabled)setView('3d');if(!worldView?.enabled)return;if(!state)return toast('Мир ещё загружается');worldView.setup(camera,canvas.width,canvas.height);if(!worldView.startWalk(camera,selection))return toast('В этом мире нет доступной суши для прогулки');pointers.clear();gesture=null;lab36Painting=false;const vp=$('worldViewport');worldView.walkOwnFullscreen=!document.fullscreenElement&&!vp.classList.contains('immersive');if(worldView.walkOwnFullscreen){vp.classList.add('immersive');try{vp.requestFullscreen()?.catch(()=>{});}catch{}}$('exitFull').hidden=false;};
 $('showGrid16').onchange=e=>{if(worldView)worldView.grid=e.target.checked;};
@@ -55,8 +55,13 @@ s=re.sub(r'#sky119\{[^}]*\}', '', s)
 s=s.replace('<div class="mapFoot">','<details class="biomeGuide16"><summary>Биомы мира · 19 типов местности</summary><div id="biomeList16"></div></details><div class="mapFoot">',1)
 s=s.replace('state=s;if(worldView)', 'state=s;renderBiomeGuide16();if(worldView)',1)
 s=s.replace("function weatherAt(x,y,seconds=state.worldSeconds)", "function renderBiomeGuide16(){const host=$('biomeList16');if(!host||!state)return;const counts=Array(19).fill(0);for(const k of state.universe.ecology?.terrain||[])counts[k]=(counts[k]||0)+1;host.innerHTML=WorldRules.terrains.map((b,i)=>`<div><i style=\"background:rgb(${b.color.join(',')})\"></i>${esc(b.name)} <small>${counts[i]} клеток</small></div>`).join('');}\nfunction weatherAt(x,y,seconds=state.worldSeconds)")
+s=s.replace('Атлас мира <span','Живой мир <span',1)
+s=s.replace('Детали <select','Качество <select',1)
+s=s.replace('Облака и осадки','Погода',1)
+s=s.replace('camera={zoom:1,x:0,y:0}', 'camera={zoom:2.2,x:0,y:0}',1)
+s=s.replace('≈ ${fmt(m.fps)} FPS · ${fmt(m.frameMs,1)} мс CPU · ${m.visibleChunks} участков · ${fmt(m.grassBlades)} стеблей', '≈ ${fmt(m.fps)} FPS')
 style=(ROOT/'src/world-style.css').read_text()
 s=s.replace('</style>',style+'\n</style>',1)
 assert 'sky119' not in s
-(ROOT/'microcosm_16_1_pc.html').write_text(s)
-print('Built',ROOT/'microcosm_16_1_pc.html',len(s.encode()),'bytes')
+(ROOT/'microcosm_17_0_pc.html').write_text(s)
+print('Built',ROOT/'microcosm_17_0_pc.html',len(s.encode()),'bytes')
